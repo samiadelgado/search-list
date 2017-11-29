@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="universidadApp">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ejercicio 02 - Profesor</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+         <!-- Incluir Animate -->
+        <link rel="stylesheet" href="css/animate.css">
+        
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/app.js"></script>
+
+
+
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="profesorCtrl as profe">
+            <h1>Profesor</h1>
+            <h4>{{profesor.nombre}}</h4>
+            <hr>
+
+            <div class="row">
+                <!-- Div que contiene la imagen del profesor -->
+                <div class="col-sm-3">
+                    <section class="panel">
+                        <div class="panel-body" align="center">
+                            <img ng-src="{{profesor.foto}}" class="img-circle" alt="" width="150px" height="150px">
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Div, donde se mostrará la bio del profesor -->
+                <div class="col-sm-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                            {{profesor.bio}}
+                            <br>
+                            <br>
+                            <strong>Edad:</strong> {{profesor.edad}} años   
+                        </div>
+                    </section>
+                </div>
+                <button class="btn btn-primary" ng-click="EditarProfesor()">Editar</button>
+            </div>
+
+            <div class="row animated fadeIn fast" ng-show="mostrarCaja">
+                <div class="col-sm-6">
+                    <section class="panel">
+                        <div class="panel-body">
+                            <p>Nombre</p>
+                            <input type="text" class="form-control" ng-model="editando.nombre">
+                            <br>
+                            <p>Edad</p>
+                            <input type="text" class="form-control" ng-model="editando.edad">
+                            <br>
+                            <p>Bio</p>
+                            <textarea class="form-control" ng-model="editando.bio"></textarea>
+                            <br><br>
+                              <button class="btn btn-primary" ng-click="GuardarCambios()">Guardar</button>
+                              <button class="btn btn-danger" ng-click="CancelarCambios()">Cancelar</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
